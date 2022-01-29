@@ -9,7 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout repo Content
+      uses: actions/checkout@v1
+    - name: Setup Python ENV
+      uses: actions/setup-python@v1
     - name: Forfolio Watch Running
       run: |
-        echo "Runninggg!"
+        python stockscrap.py
