@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 29 22:14:08 2022
+
+@author: cskck
+"""
+
+
+name: Master
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Forfolio Watch Running
+      run: |
+        echo "Running!"
