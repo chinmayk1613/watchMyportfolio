@@ -18,5 +18,7 @@ jobs:
     - name: Install Dependeinces
       run: pip install -r requirements.txt
     - name: Forfolio Watch Running
+      env:
+        EMAIL_PASSWORD:${{secrets.EMAIL_PASSWORD}}
       run: |
         python stockscrap.py
