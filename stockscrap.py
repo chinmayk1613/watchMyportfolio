@@ -3,7 +3,7 @@
    Author: Chinmay Kashikar
    Date: 22-01-2022"""
 
-import modin.pandas as pd
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 #import os
