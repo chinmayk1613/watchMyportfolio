@@ -6,13 +6,13 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-import os
+#import os
 import smtplib
 from datetime import datetime
 def mainCalculation():
     """This function calculate the stock current value by fetching
     its LTP Via yahoo"""
-    excelFile = pd.ExcelFile(r'C:/Users/cskck/Desktop/Stock_Related/Stock.xlsx')
+    excelFile = pd.ExcelFile(r'Stock.xlsx')
     data = pd.read_excel(excelFile, 'Position_records', skiprows=2, usecols="C:O")
     script_name_list = data['Scrip name'].to_list()
     net_quantity_list = data['Quantity'].to_list()
