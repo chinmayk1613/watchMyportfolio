@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jan 29 22:14:08 2022
-
-@author: cskck
-"""
-
-
 name: Master
 on:
   push:
