@@ -86,8 +86,8 @@ def mainCalculation():
 def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
     """This function sent email
       """
-    EMAIL_ADDRESS = os.environ.get('EMAIL_ID')
-    EMAIL_PASSWORD = os.environ.get('Email_Password')
+    EMAIL_ADDRESS = 'watchmyportfolio1607@gmail.com' #os.environ.get('EMAIL_ID')
+    EMAIL_PASSWORD = 'rifkynungjlzucaj' #os.environ.get('Email_Password')
     msg = "\n{status} \n\n\n Summary:\n Total Positional Invested Value:{invested_sum}\n Total Positional Current Value:{current_sum}\nTotal Portfolio Profit/Loss: {sum_pross}".format(status=status, sum_pross=sum_pross, invested_sum=invested_sum, current_sum=current_sum)
     today = datetime.today().strftime('%d-%m-%Y')
     with smtplib.SMTP('smtp.gmail.com', 587)as smtp:
