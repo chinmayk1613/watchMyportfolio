@@ -87,7 +87,7 @@ def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
     """This function sent email
       """
     EMAIL_ADDRESS = 'watchmyportfolio1607@gmail.com' #os.environ.get('EMAIL_ID')
-    EMAIL_PASSWORD = 'rifkynungjlzucaj' #os.environ.get('Email_Password')
+    EMAIL_PASSWORD_ENV = EMAIL_PASSWORD #os.environ.get('Email_Password')
     msg = "\n{status} \n\n\n Summary:\n Total Positional Invested Value:{invested_sum}\n Total Positional Current Value:{current_sum}\nTotal Portfolio Profit/Loss: {sum_pross}".format(status=status, sum_pross=sum_pross, invested_sum=invested_sum, current_sum=current_sum)
     today = datetime.today().strftime('%d-%m-%Y')
     with smtplib.SMTP('smtp.gmail.com', 587)as smtp:
@@ -96,7 +96,7 @@ def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
         smtp.ehlo()
 
 
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD_ENV)
         subject = 'Portfolio Status '
         today = datetime.today().strftime('%d-%m-%Y')
         msg1 = f'Subject:{subject} : {today}\n\n{msg}'
