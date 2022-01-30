@@ -100,7 +100,7 @@ def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
         subject = 'Portfolio Status '
         today = datetime.today().strftime('%d-%m-%Y')
         msg1 = f'Subject:{subject} : {today}\n\n{msg}'
-        smtp.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg1)
+        smtp.sendmail(EMAIL_PASSWORD_ENV, EMAIL_PASSWORD_ENV, msg1)
         print('Email Sent Successfully')
 
 if __name__ == '__main__':
