@@ -9,7 +9,7 @@ jobs:
   build:
     environment: MAIN_KEY
     env:
-      EMAIL_PASSWORD:${{secrets.EMAIL_PASSWORD}}
+      EMAIL_PASSWORD: '${{ secrets.EMAIL_PASSWORD }}'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo Content
