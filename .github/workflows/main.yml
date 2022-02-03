@@ -4,9 +4,13 @@ on:
     branches:
       - main
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 18 * * 1-5'
 jobs:
   build:
+    environment: MAIN_KEY
+    env:
+      EMAIL_PASSWORD: '${{ secrets.EMAIL_PASSWORD }}'
+      EMAIL_ADDRESS: '${{ secrets.EMAIL_ADDRESS}}'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo Content
@@ -15,6 +19,8 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
+    - name: Install Dependeinces
+      run: pip install -r requirements.txt
     - name: Forfolio Watch Running
       run: |
         python stockscrap.py

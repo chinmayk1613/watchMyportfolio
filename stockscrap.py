@@ -3,10 +3,10 @@
    Author: Chinmay Kashikar
    Date: 22-01-2022"""
 
-import modin.pandas as pd
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-#import os
+import os
 import smtplib
 from datetime import datetime
 def mainCalculation():
@@ -86,8 +86,8 @@ def mainCalculation():
 def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
     """This function sent email
       """
-    EMAIL_ADDRESS = 'watchmyportfolio1607@gmail.com' #os.environ.get('EMAIL_ID')
-    EMAIL_PASSWORD = 'rifkynungjlzucaj' #os.environ.get('Email_Password')
+    EMAIL_ADDRESS_ENV = os.environ.get('EMAIL_ADDRESS')
+    EMAIL_PASSWORD_ENV = os.environ.get('EMAIL_PASSWORD')
     msg = "\n{status} \n\n\n Summary:\n Total Positional Invested Value:{invested_sum}\n Total Positional Current Value:{current_sum}\nTotal Portfolio Profit/Loss: {sum_pross}".format(status=status, sum_pross=sum_pross, invested_sum=invested_sum, current_sum=current_sum)
     today = datetime.today().strftime('%d-%m-%Y')
     with smtplib.SMTP('smtp.gmail.com', 587)as smtp:
@@ -96,11 +96,11 @@ def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
         smtp.ehlo()
 
 
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.login(EMAIL_ADDRESS_ENV, EMAIL_PASSWORD_ENV)
         subject = 'Portfolio Status '
         today = datetime.today().strftime('%d-%m-%Y')
         msg1 = f'Subject:{subject} : {today}\n\n{msg}'
-        smtp.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg1)
+        smtp.sendmail(EMAIL_ADDRESS_ENV, EMAIL_ADDRESS_ENV, msg1)
         print('Email Sent Successfully')
 
 if __name__ == '__main__':
