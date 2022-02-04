@@ -19,6 +19,7 @@ def mainCalculation():
     purchase_price_list = data['Purchase price'].to_list()
     trailing_stop_loss = data['Trailing stop loss'].to_list()
     invested_value_list = data['Open position value'].to_list()
+    target_value = data['Target'].to_list()
     ltp = []
 
    # Actual Web Scrappong for price
@@ -62,19 +63,21 @@ def mainCalculation():
 
     list_pp = []
 
-    for name, quant, purchase, sloss, ltp, invested, current, pross in zip(script_name_list,
+    for name, quant, purchase, sloss, ltp, target, invested, current, pross in zip(script_name_list,
                                                                            net_quantity_list,
                                                                            purchase_price_list,
                                                                            trailing_stop_loss,
                                                                            new_ltp_float,
+                                                                           target_value,
                                                                            invested_value_list,
                                                                            current_investment,
                                                                            profit_loss):
         sub_pp = []
         sub_pp.append("Script Name: {name}\n Quantity Purchased: {quant}"
                       "\n Purchased Price: {purchase} \n Trailing Stop Loss: {sloss}"
-                      "\n Last Trading Price : {ltp} \n Invested Value: {invested}"
-                      "\n Current Value: {current} \n Profit OR Loss: {pross}\n\n"
+                      "\n Last Trading Price : {ltp} \n Target Price : {target} "
+                      "\n Invested Value: {invested} \n Current Value: {current}" 
+                      "\n Profit OR Loss: {pross}\n\n"
                       .format(name=name, quant=quant, purchase=purchase
                               , sloss=sloss, ltp=ltp, invested=invested
                               , current=current, pross=pross))
@@ -105,4 +108,3 @@ def sendEmail(status='', sum_pross='', invested_sum='', current_sum=''):
 
 if __name__ == '__main__':
     mainCalculation()
-
