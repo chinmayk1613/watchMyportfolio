@@ -79,7 +79,7 @@ def mainCalculation():
                       "\n Invested Value: {invested} \n Current Value: {current}" 
                       "\n Profit OR Loss: {pross}\n\n"
                       .format(name=name, quant=quant, purchase=purchase
-                              , sloss=sloss, ltp=ltp, invested=invested
+                              , sloss=sloss, ltp=ltp, target=target, invested=invested
                               , current=current, pross=pross))
         full_status = ''.join(sub_pp)
         list_pp.append(full_status)
