@@ -13,13 +13,14 @@ def mainCalculation():
     """This function calculate the stock current value by fetching
     its LTP Via yahoo"""
     excel_file = pd.ExcelFile(r'Stock.xlsx')
-    data = pd.read_excel(excel_file, 'Position_records', skiprows=2, usecols="C:O")
-    script_name_list = data['Scrip name'].to_list()
-    net_quantity_list = data['Quantity'].to_list()
-    purchase_price_list = data['Purchase price'].to_list()
-    trailing_stop_loss = data['Trailing stop loss'].to_list()
-    invested_value_list = data['Open position value'].to_list()
-    target_value = data['Target'].to_list()
+    data = pd.read_excel(excel_file, 'Position_records', skiprows=2, usecols="B:O")
+    datafilteropen=data[data['Position status']=="Open"]
+    script_name_list = datafilteropen['Scrip name'].to_list()
+    net_quantity_list = datafilteropen['Quantity'].to_list()
+    purchase_price_list = datafilteropen['Purchase price'].to_list()
+    trailing_stop_loss = datafilteropen['Trailing stop loss'].to_list()
+    invested_value_list = datafilteropen['Open position value'].to_list()
+    target_value = datafilteropen['Target'].to_list()
     ltp = []
 
    # Actual Web Scrappong for price
