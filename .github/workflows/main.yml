@@ -18,7 +18,7 @@ jobs:
     - name: Setup Python ENV
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: 3.11
     - name: Install Dependeinces
       run: pip install -r requirements.txt
     - name: Forfolio Watch Running
